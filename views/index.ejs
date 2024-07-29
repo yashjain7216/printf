@@ -1,0 +1,27 @@
+<div class="author">
+<h1 class="author_heading">Hi,We Are Printf</h1>
+<p class="author_body">Create Post Update</p>    
+</div>
+<img src="/img/person.jpg" alt="person looking out" class="hero_image" width="981" height="528">
+<section class="articles">
+<h2 class="articles_heading">Latest Posts</h2>
+
+<ul class="article-ul">
+<% data.forEach(post => { %>
+<li>
+    <a href = "/post/<%= post._id %>" >
+        <span><%= post.title %></span>
+        <span class="article-list_date"><%= post.createdAt.toDateString() %></span>
+        <span><%= post.username %></span>
+    </a>
+</li>
+<% }) %>
+</ul>
+
+<% if (nextPage!== null) { %>
+    <a href="/?page=<%= nextPage %>" class="pagination">&lt;View Older Post</a>
+<% } %>
+
+
+
+</section>
